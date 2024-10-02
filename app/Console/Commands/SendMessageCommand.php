@@ -26,7 +26,7 @@ class SendMessageCommand extends Command
      */
     public function handle()
     {
-        $telegram = new Api('6527940998:AAHi9R0RgNflIZ5ma2HV0F3QixJ7rXpnfts');
+        $telegram = new Api('');
         $chatId = '@realtime_usd'; // Replace with your channel ID
         dd($telegram->getUpdates());
         foreach ($telegram->getUpdates() as $update) {
