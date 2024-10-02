@@ -103,6 +103,7 @@
             Carrying: ${capacity} ${capacityType}<br>
             Origin: ${origin.name}<br>
             Destination: ${destination.name}<br>
+            Speed : ${airplane.airplane.speed} km/h<br>
             Departed at: ${departed_at}<br>
             Expected at: ${landed_at}<br>
             ${durationInfo}<br>

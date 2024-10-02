@@ -52,7 +52,7 @@ class AirlineAirplane extends Model
 
     public function getTotalTraveledTime(): int
     {
-        return $this->flights()->get()->sum(fn($flight) => CalculationHelper::calculateTime($flight->origin, $flight->destination));
+        return $this->flights()->get()->sum(fn($flight) => CalculationHelper::calculateTime($flight->origin, $flight->destination,$this->airplane));
     }
 
     public function getRemainedTraveledTime(): int

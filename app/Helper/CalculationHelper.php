@@ -3,6 +3,7 @@
 namespace App\Helper;
 
 use App\Models\Airline;
+use App\Models\Airplane;
 use App\Models\Airport;
 
 class CalculationHelper
@@ -30,10 +31,11 @@ class CalculationHelper
         return ceil($earthRadius * $c);
     }
 
-    public static function calculateTime(Airport $airport1,Airport $airport2): int
+    public static function calculateTime(Airport $airport1,Airport $airport2, Airplane|null $airplane = null): int
     {
+        $speed = $airplane->speed ?? env('airplane_speed');
         $distance = self::calculateDistance($airport1, $airport2);
-        $timeInHours = $distance / config('services.server.airplane_speed');
+        $timeInHours = $distance / $speed;
 
         return ceil($timeInHours);
     }

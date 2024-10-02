@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->unsignedInteger('capacity');
             $table->unsignedInteger('lifespan');
+            $table->unsignedInteger('speed')->default(0);
             $table->timestamps();
         });
     }
