@@ -18,7 +18,7 @@ class FlightSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 0; $i < 20; $i++) { // Create 50 flights, adjust as needed
+        for ($i = 0; $i < 50; $i++) { // Create 50 flights, adjust as needed
             $departedAt = Carbon::now();
             $origin = Airport::inRandomOrder()->first();
             $destination = Airport::inRandomOrder()->first();

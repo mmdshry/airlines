@@ -33,7 +33,7 @@ class CalculationHelper
 
     public static function calculateTime(Airport $airport1,Airport $airport2, Airplane|null $airplane = null): int
     {
-        $speed = $airplane->speed ?? env('airplane_speed');
+        $speed = $airplane->speed ?? config('services.server.airplane_speed');
         $distance = self::calculateDistance($airport1, $airport2);
         $timeInHours = $distance / $speed;
 
