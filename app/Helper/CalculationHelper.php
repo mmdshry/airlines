@@ -43,9 +43,17 @@ class CalculationHelper
     public static function calculateTicketPrice(Airport $airport1,Airport $airport2): int
     {
         $timeInHours = self::calculateTime($airport1, $airport2);
-        $ticketPrice = $timeInHours * config('services.server.ticket_rate');
+        $distance = self::calculateDistance($airport1, $airport2);
 
-        return ceil($ticketPrice);
+        // Coefficients for the linear model (these values would be determined by training a model)
+        $basePrice = $timeInHours * config('services.server.ticket_rate');  // Base price in dollars
+        $pricePerKm = 0.03;  // Cost per kilometer
+        $pricePerHour = 10;  // Cost per hour
+
+        // Calculate the ticket price
+        $predictedPrice = $basePrice + ($pricePerKm * $distance) + ($pricePerHour * $timeInHours);
+
+        return ceil($predictedPrice);
     }
 
     public static function calculateContract(Airline $airline1,Airline $airline2): int

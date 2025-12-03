@@ -6,10 +6,6 @@ namespace App\Models;
 use Bavix\Wallet\Interfaces\Wallet;
 use Bavix\Wallet\Traits\HasWallet;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -49,7 +45,7 @@ class User extends Authenticatable implements Wallet
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'password'          => 'hashed',
         ];
     }
 
@@ -59,5 +55,18 @@ class User extends Authenticatable implements Wallet
     public function airline(): HasOneThrough
     {
         return $this->hasOneThrough(Airline::class, AirlineUser::class, 'user_id', 'id', 'id', 'airline_id');
+    }
+
+    /**
+     * Get the airline associated with the user.
+     */
+    public function flights()
+    {
+        return $this->hasManyThrough(Flight::class, Route::class,'id','id'); // Adjust the foreign key if necessary
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->email === "unshields@gmail.com";
     }
 }

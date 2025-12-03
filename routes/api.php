@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FlightController;
+use App\Http\Controllers\PassengerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -10,3 +11,5 @@ Route::get('/user', function (Request $request) {
 
 
 Route::apiResource('flights', FlightController::class);
+
+Route::apiResource('passengers', PassengerController::class);

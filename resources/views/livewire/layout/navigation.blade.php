@@ -42,8 +42,26 @@ new class extends Component
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-5 sm:flex">
+                    <x-nav-link :href="route('flights.index')" :active="request()->routeIs('flights.index')" wire:navigate>
+                        {{ __('Flights') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-5 sm:flex">
                     <x-nav-link :href="route('events.index')" :active="request()->routeIs('events.index')" wire:navigate>
                         {{ __('Events') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-5 sm:flex">
+                    <x-nav-link :href="route('routes.index')" :active="request()->routeIs('routes.index')" wire:navigate>
+                        {{ __('Routes') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-5 sm:flex">
+                    <x-nav-link :href="route('passengers.index')" :active="request()->routeIs('passengers.index')" wire:navigate>
+                        {{ __('Passengers') }}
                     </x-nav-link>
                 </div>
             </div>

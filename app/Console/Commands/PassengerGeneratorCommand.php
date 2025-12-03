@@ -2,16 +2,17 @@
 
 namespace App\Console\Commands;
 
+use Database\Seeders\PassengerSeeder;
 use Illuminate\Console\Command;
 
-class FlightProccessorCommand extends Command
+class PassengerGeneratorCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'app:flight-proccessor-command';
+    protected $signature = 'app:passenger-generator-command';
 
     /**
      * The console command description.
@@ -25,6 +26,6 @@ class FlightProccessorCommand extends Command
      */
     public function handle()
     {
-        //
+        $this->call('db:seed', ['--class' => 'PassengerSeeder']);
     }
 }

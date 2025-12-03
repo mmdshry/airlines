@@ -11,7 +11,7 @@
                 <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl py-3">Events</h1>
             </div>
             <div
-                class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none">
+                    class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none">
                 <article class="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
                     <div class="bg-white p-4 sm:p-6">
                         <div class="overflow-x-auto">
@@ -38,11 +38,16 @@
                                     <tr>
                                         <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{{ $event->airline->name }}</td>
                                         <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{{ $event->type }}</td>
-                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{{ $event->passengers ?? '-' }} Person</td>
-                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{{ $event->cargo ?? '-' }} Ton's</td>
+                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{{ $event->passengers ?? '-' }}
+                                            Person
+                                        </td>
+                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{{ $event->cargo ?? '-' }}
+                                            Ton's
+                                        </td>
                                         <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{{ $event->airport->name ?? '-' }}</td>
                                         <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $event->airlineAirplane->callsign ?? '-' }}</td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $event->flight->origin->name ?? '-' }} -> {{$event->flight->destination->name ?? '-'}}</td>
+                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $event->flight->origin->name ?? '-' }}
+                                            -> {{$event->flight->destination->name ?? '-'}}</td>
                                         <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{{ $event->is_crashed }}</td>
                                         <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{{ $event->is_missed  }}</td>
                                         <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $event->description }}</td>
@@ -52,6 +57,9 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                </article>
+            </div>
         </div>
     </div>
 </x-app-layout>

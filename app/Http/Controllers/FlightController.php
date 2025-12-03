@@ -13,7 +13,11 @@ class FlightController extends Controller
      */
     public function index()
     {
-        dd('index');
+        $flights = Flight::with(['origin', 'destination', 'airplane.airline'])
+            ->orderBy('departed_at', 'desc')
+            ->paginate(15);
+
+        return view('flights.index', compact('flights'));
     }
 
     /**
